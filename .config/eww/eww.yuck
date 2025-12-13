@@ -1,0 +1,48 @@
+;including modules 
+(include "./widgets.yuck")
+
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :hexpand "false"
+  :vexpand "false"
+  :geometry (geometry
+    :anchor "top center"
+    :x "0"
+    :y "4"
+    :width "99%"
+    :height "4%"
+  )
+  :stacking "fg"
+  :exclusive "true"
+  :focusable "false"
+
+  (centerbox
+    :class "base_div"
+    :orientation "h"
+    :spacing 10
+
+    (box
+      :class "left"
+      :halign "start"
+      "pass"
+    )
+
+    (box
+      :class "center"
+      :halign "center"
+      "pass"
+    )
+
+    (box
+      :class "right"
+      :halign "end"
+      :space-evenly false
+      :spacing 8
+      (wifi)
+      (battery)
+      (time)
+    )
+  )
+)
+

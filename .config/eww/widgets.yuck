@@ -1,0 +1,29 @@
+;=====Time=======================================
+(defpoll time_poll :interval "10s" "date '+%a %d-%b  %H:%M'")
+
+(defwidget time[]
+  (box :class "time_container" :orientation "h" (label :class "time" :text time_poll))
+)
+
+;=====Battery====================================
+(defpoll battery-data :interval "5s" "~/.config/eww/scripts/battery.sh")  
+
+(defwidget battery []
+  (box :class "battery_container" :orientation "h" :tooltip "${battery-data.class}"
+    (label :class "${battery-data.class} battery-icon" :text "${battery-data.icon}")
+    (label :class "${battery-data.class}" :text "${battery-data.level}%")
+  )
+)
+
+;=====Wifi=======================================
+(defpoll wifi-data :interval "1s" "~/.config/eww/scripts/wifi.sh")
+
+(defwidget wifi []
+  (button 
+    :onclick "~/.config/eww/scripts/wifi.sh toggle"
+    :tooltip "${wifi-data.ssid}"
+    "${wifi-data.icon}"
+  )
+)
+
+
