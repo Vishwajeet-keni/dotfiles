@@ -1,0 +1,59 @@
+ignore-empty-password
+font="Fira Sans Semibold"
+
+clock
+timestr=%R
+datestr=%a, %e of %b
+
+# Add image as Background
+image=~/wallpapers/static/w1.jpg
+
+# Fade in time
+fade-in=1
+
+# Effects for Background
+effect-blur=20x6
+effect-greyscale
+#effect-pixelate=5
+
+# Show/Hide indicator circle
+indicator
+
+indicator-radius=150
+
+indicator-thickness=20
+indicator-caps-lock
+
+# Define all colors
+
+key-hl-color=00000066
+separator-color=00000000
+
+inside-color=00000033
+inside-clear-color=ffffff00
+inside-caps-lock-color=ffffff00
+inside-ver-color=ffffff00
+inside-wrong-color=ffffff00
+
+ring-color=ffffffff
+ring-clear-color=ffffffff
+ring-caps-lock-color=ffffffff
+ring-ver-color=ffffffff
+ring-wrong-color=ffffffff
+
+line-color=00000000
+line-clear-color=ffffffFF
+line-caps-lock-color=ffffffFF
+line-ver-color=ffffffFF
+line-wrong-color=ffffffFF
+
+text-color=ffffffff
+text-clear-color=ffffffff
+text-caps-lock-color=ffffffff
+text-ver-color=ffffffff
+text-wrong-color=ffffffff
+
+bs-hl-color=ffffffff
+caps-lock-key-hl-color=ffffffFF
+caps-lock-key-bs-color=ffffffFF
+disable-caps-lock-text=ffffffFF

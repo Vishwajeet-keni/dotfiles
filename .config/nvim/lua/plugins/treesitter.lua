@@ -2,9 +2,9 @@ return { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-    ensure_installed = {'lua','vim','vimdoc','bash','json','jsonc',
+      ensure_installed = {'lua','vim','vimdoc','bash','json','jsonc',
                         'yaml','toml','make','cmake','gitignore', --Core
                         'python','javascript','typescript','tsx','go',
                         'java','html','css', 'scss',              --Programing & Web/UI
