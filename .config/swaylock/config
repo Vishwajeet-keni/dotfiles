@@ -14,7 +14,7 @@ fade-in=1
 # Effects for Background
 effect-blur=20x6
 effect-greyscale
-#effect-pixelate=5
+effect-pixelate=5
 
 # Show/Hide indicator circle
 indicator
