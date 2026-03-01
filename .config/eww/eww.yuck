@@ -25,13 +25,13 @@
     (box
       :class "left"
       :halign "start"
-      "pass"
+      ;"pass"
     )
 
     (box
       :class "center"
       :halign "center"
-      "pass"
+      ;"pass"
     )
 
     (box
