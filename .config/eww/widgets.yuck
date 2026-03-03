@@ -26,4 +26,57 @@
   )
 )
 
+;=====CPU And Disk_Space Usages==================
+;; widgets/cpu_disks.yuck
+;; CPU and Disk usage widget with circular progress
 
+;; Define icons (smoke white color will be handled by CSS)
+(defvar icon-cpu "")
+(defvar icon-disk "")
+
+;; Circular progress widget component
+(defwidget circular_progress [value label color]
+  (box :class "circular-progress-container"
+       :orientation "v"
+       :space-evenly false
+       :spacing 5
+    (box :class "circular-progress"
+         :style "background: conic-gradient({color} {value}%, #2e3440 0%);")
+    (label :text label  ;; Just use label directly, no quotes
+           :class "progress-label")
+  )
+)
+
+;; Poll for system information
+(deflisten cpu_disks_data :interval "5s"
+  `./scripts/cpu_disks.sh`)
+
+;; Main CPU and Disk widget
+(defwidget cpu_disks []
+  (box :class "cpu-disk-container"
+       :orientation "h"
+       :space-evenly true
+       :spacing 2  
+    ;; CPU section
+    (box :class "cpu-disk-item"
+         :orientation "h"
+         :spacing 1
+      (label :text icon-cpu
+             :class "cpu-disk-icon")
+      (circular_progress :value {cpu_disks_data.cpu}
+                        :label {cpu_disks_data.cpu}
+                        :color "#61afef")
+    )
+    
+    ;; Disk section (root partition)
+    (box :class "cpu-disk-item"
+         :orientation "h"
+         :spacing 1
+      (label :text icon-disk
+             :class "cpu-disk-icon")
+      (circular_progress :value {cpu_disks_data.disk}
+                        :label {cpu_disks_data.disk}
+                        :color "#98c379")
+    )
+  )
+)

@@ -9,8 +9,8 @@
   :geometry (geometry
     :anchor "top center"
     :x "0"
-    :y "4"
-    :width "99%"
+    :y "5"
+    :width "98.8%"
     :height "4%"
   )
   :stacking "fg"
@@ -39,6 +39,7 @@
       :halign "end"
       :space-evenly false
       :spacing 8
+      (cpu_disks)
       (wifi)
       (battery)
       (time)
