@@ -29,7 +29,7 @@
 ;=====CPU And Memory Usages==================
 ;; CPU and Memory usage widget with circular progress
 
-;; Define icons (smoke white color will be handled by CSS)
+;; Define icons 
 (defvar icon-cpu "")
 (defvar icon-mem "")
 
@@ -47,8 +47,7 @@
 )
 
 ;; Poll for system information
-(deflisten cpu_mem_data :interval "5s"
-  `./scripts/cpu_mem.sh`)
+(defpoll cpu_mem_data :interval "3s" "~/.config/eww/scripts/cpu_mem.sh")
 
 ;; Main CPU and Disk widget
 (defwidget cpu_mem []
@@ -63,18 +62,18 @@
       (label :text icon-cpu
              :class "cpu-mem-icon")
       (circular_progress :value {cpu_mem_data.cpu}
-                        :label {cpu_mem_data.cpu}
+                        :label "${cpu_mem_data.cpu}%"
                         :color "#61afef")
     )
     
-    ;; Memory section - changed from disk to memory
+    ;; Memory section 
     (box :class "cpu-mem-item"
          :orientation "h"
          :spacing 1
       (label :text icon-mem
              :class "cpu-mem-icon")
       (circular_progress :value {cpu_mem_data.memory}
-                        :label {cpu_mem_data.memory}
+                        :label "${cpu_mem_data.memory}%"
                         :color "#98c379")
     )
   )
