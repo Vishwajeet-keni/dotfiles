@@ -39,7 +39,7 @@
       :halign "end"
       :space-evenly false
       :spacing 8
-      (cpu_disks)
+      (cpu_mem)
       (wifi)
       (battery)
       (time)
