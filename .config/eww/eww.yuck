@@ -26,6 +26,7 @@
       :class "left"
       :halign "start"
       ;"pass"
+      (workspace)
     )
 
     (box

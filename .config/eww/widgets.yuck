@@ -1,30 +1,34 @@
-;=====Time=======================================
-(defpoll time_poll :interval "10s" "date '+%a %d-%b  %H:%M'")
+;=====Workspace==================================
+(defvar ws-dot "")
 
-(defwidget time[]
-  (box :class "time_container" :orientation "h" (label :class "time" :text time_poll))
-)
+(defpoll workspace_data :interval "0.5s"
+  :initial `{"current": 1, "workspaces": [1]}`
+  `~/.config/eww/scripts/workspaces.sh`)
 
-;=====Battery====================================
-(defpoll battery-data :interval "5s" "~/.config/eww/scripts/battery.sh")  
-
-(defwidget battery []
-  (box :class "battery_container" :orientation "h" :tooltip "${battery-data.class}"
-    (label :class "${battery-data.class} battery-icon" :text "${battery-data.icon}")
-    (label :class "${battery-data.class}" :text "${battery-data.level}%")
+(defwidget ws-btn [id]
+  (button
+    :class {"${workspace_data.current}" == "${id}" ? "ws-active" : "ws-inactive"}
+    :onclick `hyprctl dispatch workspace ${id}`
+    (label :text {"${workspace_data.current}" == "${id}" ? ws-dot : "${id}"})
   )
 )
 
-;=====Wifi=======================================
-(defpoll wifi-data :interval "1s" "~/.config/eww/scripts/wifi.sh")
-
-(defwidget wifi []
-  (button 
-    :onclick "~/.config/eww/scripts/wifi.sh toggle"
-    :tooltip "${wifi-data.ssid}"
-    "${wifi-data.icon}"
+(defwidget workspace []
+  (box :class "workspace-container"
+       :orientation "h"
+       :spacing 2
+    (ws-btn :id 1)
+    (ws-btn :id 2)
+    (ws-btn :id 3)
+    (ws-btn :id 4)
+    (ws-btn :id 5)
   )
 )
+
+
+
+
+
 
 ;=====CPU And Memory Usages==================
 ;; CPU and Memory usage widget with circular progress
@@ -38,43 +42,77 @@
   (box :class "circular-progress-container"
        :orientation "v"
        :space-evenly false
-       :spacing 5
+       :spacing 4
     (box :class "circular-progress"
-         :style "background: conic-gradient({color} {value}%, #2e3440 0%);")
+         :style "background: conic-gradient({color} {value}%, #1e3440 0%);")
     (label :text label  ;; Just use label directly, no quotes
            :class "progress-label")
   )
 )
 
 ;; Poll for system information
-(defpoll cpu_mem_data :interval "3s" "~/.config/eww/scripts/cpu_mem.sh")
+(defpoll cpu_mem_data :interval "2s" "~/.config/eww/scripts/cpu_mem.sh")
 
 ;; Main CPU and Disk widget
 (defwidget cpu_mem []
   (box :class "cpu-mem-container"
        :orientation "h"
        :space-evenly true
-       :spacing 2
+       :spacing 1
     ;; CPU section
     (box :class "cpu-mem-item"
          :orientation "h"
-         :spacing 1
+         :spacing 0
       (label :text icon-cpu
              :class "cpu-mem-icon")
       (circular_progress :value {cpu_mem_data.cpu}
                         :label "${cpu_mem_data.cpu}%"
-                        :color "#61afef")
+                        :color "#60afef")
     )
     
     ;; Memory section 
     (box :class "cpu-mem-item"
          :orientation "h"
-         :spacing 1
+         :spacing 0
       (label :text icon-mem
              :class "cpu-mem-icon")
       (circular_progress :value {cpu_mem_data.memory}
                         :label "${cpu_mem_data.memory}%"
-                        :color "#98c379")
+                        :color "#97c379")
     )
   )
+)
+
+
+
+;=====Wifi=======================================
+(defpoll wifi-data :interval "1s" "~/.config/eww/scripts/wifi.sh")
+
+(defwidget wifi []
+  (button 
+    :onclick "~/.config/eww/scripts/wifi.sh toggle"
+    :tooltip "${wifi-data.ssid}"
+    "${wifi-data.icon}"
+  )
+)
+
+
+
+;=====Battery====================================
+(defpoll battery-data :interval "5s" "~/.config/eww/scripts/battery.sh")  
+
+(defwidget battery []
+  (box :class "battery_container" :orientation "h" :tooltip "${battery-data.class}"
+    (label :class "${battery-data.class} battery-icon" :text "${battery-data.icon}")
+    (label :class "${battery-data.class}" :text "${battery-data.level}%")
+  )
+)
+
+
+
+;=====Time=======================================
+(defpoll time_poll :interval "10s" "date '+%a %d-%b  %H:%M'")
+
+(defwidget time[]
+  (box :class "time_container" :orientation "h" (label :class "time" :text time_poll))
 )
