@@ -25,7 +25,9 @@
     (box
       :class "left"
       :halign "start"
-      ;"pass"
+      :space-evenly false
+      :spacing 10
+      (Arch_logo)
       (workspace)
     )
 

@@ -1,3 +1,5 @@
+// General CSS
+
 *{
   all: unset;
   font-family: sans-serif;
@@ -18,13 +20,18 @@
 .center{background-color: blue;}
 .right{margin-right: 8px;}
 
-.time{color:whitesmoke;}
 
-.battery_container .Charging    { color: green; }
-.battery_container .Discharging { color: whitesmoke;}
-.battery_container .critical    { color: red; }  
 
-/* Add to bottom of eww.scss */
+// Arch_logo CSS
+.arch_linux_logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1793d1;
+  padding: 0px 2px;
+}
+
+
+// Workspace CSS
 
 .workspace-container button {
   background: none;
@@ -48,3 +55,16 @@
   font-size: 14.5px;
   font-weight: 600;
 }
+
+
+
+// Battery CSS
+
+.battery_container .Charging    { color: green; }
+.battery_container .Discharging { color: whitesmoke;}
+.battery_container .critical    { color: red; }
+
+
+// Time CSS
+
+//.time{color:whitesmoke;}

@@ -1,3 +1,15 @@
+;=====Arch_Linux_Logo============================
+(defvar arch_logo "")
+
+(defwidget Arch_logo []
+  (box  :orientation "h"
+        :spacing 0
+        (label  :class "arch_linux_logo"
+                :text arch_logo)
+  )
+)
+
+
 ;=====Workspace==================================
 (defvar ws-dot "")
 
@@ -17,9 +29,9 @@
   (box :class "workspace-container"
        :orientation "h"
        :spacing 2
-      (for ws in {workspace_data.workspaces}
+       (for ws in {workspace_data.workspaces}
           (ws-btn :id "${ws}")
-      )
+       )
   )
 )
 
