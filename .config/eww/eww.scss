@@ -64,6 +64,41 @@
 .battery_container .Discharging { color: whitesmoke;}
 .battery_container .critical    { color: red; }
 
+// Low Battery Warning CSS
+
+.low-batt-container {
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 0.0628rem solid whitesmoke;
+  border-radius: 0.314rem;
+  padding: 20px;
+}
+
+.low-batt-icon {
+  color: red;
+  font-size: 28px;
+}
+
+.low-batt-msg {
+  color: whitesmoke;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.low-batt-sub {
+  color: #aaaaaa;
+  font-size: 12px;
+}
+
+.low-batt-btn {
+  color: whitesmoke;
+  border: 0.0628rem solid whitesmoke;
+  border-radius: 0.314rem;
+  padding: 4px 16px;
+}
+
+.low-batt-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 
 // Time CSS
 

@@ -17,6 +17,21 @@ fi
 
 # status
 class="$status"
-[ "$level" -le 30 ] && class="critical"
+low_batt=84
 
-echo "{\"icon\":\"$icon\", \"level\":\"$level\", \"class\":\"$class\"}"   
+[ "$level" -le $low_batt ] && class="critical"
+
+# Low battery warning logic
+shown_file="/tmp/eww_batt_warning_shown"
+
+if [ "$level" -le $low_batt ] && [ "$status" = "Discharging" ] && [ ! -f "$shown_file" ]; then
+  eww open low_batt_warning 2>/dev/null
+  touch "$shown_file"
+fi
+
+# Reset shown if charging OR battery recovered above 30
+if [ "$status" = "Discharging" ] || [ "$level" -gt $low_batt ]; then
+  rm -f "$shown_file"
+fi
+
+echo "{\"icon\":\"$icon\", \"level\":\"$level\", \"class\":\"$class\"}" 

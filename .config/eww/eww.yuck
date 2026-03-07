@@ -50,3 +50,17 @@
   )
 )
 
+
+
+(defwindow low_batt_warning
+  :monitor 0
+  :windowtype "dialog"
+  :geometry (geometry
+    :anchor "center"
+    :width "200px"
+    :height "20px"
+  )
+  :stacking "overlay"
+  :focusable "true"
+  (low_batt_warning)
+)

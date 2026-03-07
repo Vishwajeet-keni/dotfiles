@@ -40,7 +40,7 @@
 
 
 
-;=====CPU And Memory Usages==================
+;=====CPU_And_Memory_Usages==================
 ;; CPU and Memory usage widget with circular progress
 
 ;; Define icons 
@@ -68,7 +68,7 @@
   (box :class "cpu-mem-container"
        :orientation "h"
        :space-evenly true
-       :spacing 1
+       :spacing 0
     ;; CPU section
     (box :class "cpu-mem-item"
          :orientation "h"
@@ -115,6 +115,21 @@
   (box :class "battery_container" :orientation "h" :tooltip "${battery-data.class}"
     (label :class "${battery-data.class} battery-icon" :text "${battery-data.icon}")
     (label :class "${battery-data.class}" :text "${battery-data.level}%")
+  )
+)
+
+;=====Low_Battery_Warning==========================
+(defwidget low_batt_warning []
+  (box :class "low-batt-container"
+       :orientation "v"
+       :spacing 12
+    (label :class "low-batt-icon" :text "")
+    (label :class "low-batt-msg" :text "Battery is low!")
+    (label :class "low-batt-sub" :text "Please connect to charger")
+    (button :class "low-batt-btn"
+            :onclick "eww close low_batt_warning"
+            "OK"
+    )
   )
 )
 
