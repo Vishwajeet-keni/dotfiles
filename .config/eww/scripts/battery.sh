@@ -17,7 +17,7 @@ fi
 
 # status
 class="$status"
-low_batt=84
+low_batt=34
 
 [ "$level" -le $low_batt ] && class="critical"
 
@@ -30,7 +30,7 @@ if [ "$level" -le $low_batt ] && [ "$status" = "Discharging" ] && [ ! -f "$shown
 fi
 
 # Reset shown if charging OR battery recovered above 30
-if [ "$status" = "Discharging" ] || [ "$level" -gt $low_batt ]; then
+if [ "$status" = "Charging" ] || [ "$level" -gt $low_batt ]; then
   rm -f "$shown_file"
 fi
 
