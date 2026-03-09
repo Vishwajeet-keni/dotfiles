@@ -17,7 +17,7 @@ fi
 
 # status
 class="$status"
-low_batt=34
+low_batt=30
 
 [ "$level" -le $low_batt ] && class="critical"
 

@@ -40,59 +40,40 @@
 
 
 
-;=====CPU_And_Memory_Usages==================
-;; CPU and Memory usage widget with circular progress
-
-;; Define icons 
+;=====CPU_And_Memory_Usages================== 
 (defvar icon-cpu "")
 (defvar icon-mem "")
 
-;; Circular progress widget component
-(defwidget circular_progress [value label color]
-  (box :class "circular-progress-container"
-       :orientation "v"
-       :space-evenly false
-       :spacing 4
-    (box :class "circular-progress"
-         :style "background: conic-gradient({color} {value}%, #1e3440 0%);")
-    (label :text label  ;; Just use label directly, no quotes
-           :class "progress-label")
-  )
-)
-
-;; Poll for system information
 (defpoll cpu_mem_data :interval "2s" "~/.config/eww/scripts/cpu_mem.sh")
 
-;; Main CPU and Disk widget
 (defwidget cpu_mem []
-  (box :class "cpu-mem-container"
-       :orientation "h"
-       :space-evenly true
-       :spacing 0
-    ;; CPU section
-    (box :class "cpu-mem-item"
-         :orientation "h"
-         :spacing 0
-      (label :text icon-cpu
-             :class "cpu-mem-icon")
-      (circular_progress :value {cpu_mem_data.cpu}
-                        :label "${cpu_mem_data.cpu}%"
-                        :color "#60afef")
-    )
-    
-    ;; Memory section 
-    (box :class "cpu-mem-item"
-         :orientation "h"
-         :spacing 0
-      (label :text icon-mem
-             :class "cpu-mem-icon")
-      (circular_progress :value {cpu_mem_data.memory}
-                        :label "${cpu_mem_data.memory}%"
-                        :color "#97c379")
-    )
+  (box  :class "cpu-mem-container"
+        :orientation "h"
+        :space-evenly false
+        :spacing 8
+    (label :text icon-cpu :class "cpu-mem-icon")
+    (label :text "${cpu_mem_data.cpu}%" :class "cpu-label")
+    (label :text icon-mem :class "cpu-mem-icon")
+    (label :text "${cpu_mem_data.memory}%" :class "mem-label")
   )
 )
 
+
+
+;=====PKG_Updates_Avalable=======================
+(defvar icon-updates "")
+
+(defpoll update_data :interval "3600s" "~/.config/eww/scripts/updates.sh")
+
+(defwidget updates []
+  (box  :class "updates_container"
+        :orientation "h"
+        :space-evenly true
+        :spacing 1   
+    (label  :text icon-updates)
+    (label  :text "${update_data.count}")
+  )
+)
 
 
 ;=====Wifi=======================================

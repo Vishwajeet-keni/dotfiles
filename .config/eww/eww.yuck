@@ -43,6 +43,7 @@
       :space-evenly false
       :spacing 8
       (cpu_mem)
+      (updates)
       (wifi)
       (battery)
       (time)
