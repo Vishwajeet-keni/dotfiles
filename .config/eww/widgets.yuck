@@ -4,8 +4,8 @@
 (defwidget Arch_logo []
   (box  :orientation "h"
         :spacing 0
-        (label  :class "arch_linux_logo"
-                :text arch_logo)
+
+      (label  :text arch_logo :class "arch_linux_logo")
   )
 )
 
@@ -14,14 +14,12 @@
 (defvar ws-dot "")
 
 (defpoll workspace_data :interval "0.5s"
-  :initial `{"current": 1, "workspaces": [1]}`
-  `~/.config/eww/scripts/workspaces.sh`)
+  :initial `{"current": 1, "workspaces": [1]}` `~/.config/eww/scripts/workspaces.sh`)
 
 (defwidget ws-btn [id]
-  (button
-    :class {"${workspace_data.current}" == "${id}" ? "ws-active" : "ws-inactive"}
-    :onclick `hyprctl dispatch workspace ${id}`
-    (label :text {"${workspace_data.current}" == "${id}" ? ws-dot : "${id}"})
+  (button :class {"${workspace_data.current}" == "${id}" ? "ws-active" : "ws-inactive"}
+          :onclick `hyprctl dispatch workspace ${id}`
+      (label :text {"${workspace_data.current}" == "${id}" ? ws-dot : "${id}"})
   )
 )
 
@@ -29,9 +27,10 @@
   (box :class "workspace-container"
        :orientation "h"
        :spacing 2
-       (for ws in {workspace_data.workspaces}
-          (ws-btn :id "${ws}")
-       )
+
+      (for ws in {workspace_data.workspaces}
+        (ws-btn :id "${ws}")
+      )
   )
 )
 
@@ -40,21 +39,46 @@
 
 
 
-;=====CPU_And_Memory_Usages================== 
+;=====System_Stats===============================
+;cpu_usage ,mem_usage ,temp
+
 (defvar icon-cpu "")
 (defvar icon-mem "")
 
-(defpoll cpu_mem_data :interval "2s" "~/.config/eww/scripts/cpu_mem.sh")
+(defpoll System_data :interval "2s" "~/.config/eww/scripts/system_stats.sh")
 
-(defwidget cpu_mem []
-  (box  :class "cpu-mem-container"
+(defwidget system_stats []
+  (box  :class "system-stats-container"
         :orientation "h"
         :space-evenly false
         :spacing 8
-    (label :text icon-cpu :class "cpu-mem-icon")
-    (label :text "${cpu_mem_data.cpu}%" :class "cpu-label")
-    (label :text icon-mem :class "cpu-mem-icon")
-    (label :text "${cpu_mem_data.memory}%" :class "mem-label")
+
+      (box  :class "cpu-container" 
+            :orientation "h" 
+            :space-evenly false
+            :spacing 8
+
+          (label  :text icon-cpu              :class "cpu-icon")
+          (label  :text "${System_data.cpu}%" :class "cpu-label")
+      )
+
+      (box  :class "memory-container" 
+            :orientation "h" 
+            :space-evenly false
+            :spacing 8
+
+          (label  :text icon-mem                  :class "mem-icon")
+          (label  :text "${System_data.memory}%"  :class "mem-label")
+      )
+
+      (box  :class "memory-container" 
+            :orientation "h" 
+            :space-evenly false
+            :spacing 5
+
+          (label  :text "${System_data.temp_icon}"  :class "${System_data.temp_state}")
+          (label  :text "${System_data.temp_lvl}°C" :class "${System_data.temp_state}")
+      )
   )
 )
 
@@ -69,7 +93,8 @@
   (box  :class "updates_container"
         :orientation "h"
         :space-evenly true
-        :spacing 1   
+        :spacing 1  
+
     (label  :text icon-updates)
     (label  :text "${update_data.count}")
   )
@@ -93,9 +118,12 @@
 (defpoll battery-data :interval "5s" "~/.config/eww/scripts/battery.sh")  
 
 (defwidget battery []
-  (box :class "battery_container" :orientation "h" :tooltip "${battery-data.class}"
-    (label :class "${battery-data.class} battery-icon" :text "${battery-data.icon}")
-    (label :class "${battery-data.class}" :text "${battery-data.level}%")
+  (box  :class "battery_container" 
+        :orientation "h" 
+        :tooltip "${battery-data.class}"
+
+    (label  :text "${battery-data.icon}"   :class "${battery-data.class}")
+    (label  :text "${battery-data.level}%" :class "${battery-data.class}")
   )
 )
 
@@ -104,9 +132,10 @@
   (box :class "low-batt-container"
        :orientation "v"
        :spacing 12
-    (label :class "low-batt-icon" :text "")
-    (label :class "low-batt-msg" :text "Battery is low!")
-    (label :class "low-batt-sub" :text "Please connect to charger")
+
+    (label  :text "Battery is low!"           :class "low-batt-msg")
+    (label  :text "Please connect to charger" :class "low-batt-sub" )
+
     (button :class "low-batt-btn"
             :onclick "eww close low_batt_warning"
             "OK"
