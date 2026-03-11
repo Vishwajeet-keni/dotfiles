@@ -13,8 +13,17 @@
   border-radius: 0.314rem;
   }
 
-.tooltip{
-  background-color: black;
+tooltip {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 0.0628rem solid #cba6f7;
+  border-radius: 0.314rem;
+  padding: 6px 10px;
+}
+
+tooltip label {
+  color: whitesmoke;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .left{margin-left: 8px;}
