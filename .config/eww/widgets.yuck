@@ -91,14 +91,18 @@
 
 (defwidget updates []
   (tooltip
+
     (box :orientation "v" :spacing 4
       (label :text "pacman: ${update_data.pacman_u}")
-      (label :text "yay: ${update_data.yay_u}"))
+      (label :text "yay: ${update_data.yay_u}")
+    )
+
     (box :class "updates-container"
          :orientation "h"
          :spacing 1
       (label :text icon-updates)
-      (label :text "${update_data.count}"))
+      (label :text "${update_data.count}")
+    )
   )
 )
 
@@ -147,9 +151,15 @@
 
 
 
-;=====Time=======================================
+;=====Time_Date_Calender=======================================
 (defpoll time_poll :interval "10s" "date '+%a %d-%b  %H:%M'")
 
-(defwidget time[]
-  (box :class "time_container" :orientation "h" (label :class "time" :text time_poll))
+(defwidget time_date_cal []
+  (eventbox
+    :onhover "eww open cal_popup"
+    :onhoverlost "sleep 0.3 && eww close cal_popup 2>/dev/null"
+    (box :class "time_container"
+      (label :class "time" :text time_poll)
+    )
+  )
 )

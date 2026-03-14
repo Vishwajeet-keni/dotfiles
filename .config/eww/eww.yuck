@@ -46,7 +46,7 @@
       (updates)
       (wifi)
       (battery)
-      (time)
+      (time_date_cal)
     )
   )
 )
@@ -64,4 +64,26 @@
   :stacking "overlay"
   :focusable "true"
   (low_batt_warning)
+)
+
+
+
+(defwindow cal_popup
+  :monitor 0
+  :windowtype "normal"
+  :geometry (geometry
+    :anchor "top right"
+    :x "8px"
+    :y "8px"
+    :width "200px"
+  )
+  :stacking "overlay"
+  :focusable "false"
+  (eventbox
+    :onhoverlost "eww close cal_popup"
+    (calendar :class "cal"
+              :day {EWW_TIME.day}
+              :month {EWW_TIME.month}
+              :year {EWW_TIME.year})
+  )
 )

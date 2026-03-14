@@ -123,3 +123,24 @@ tooltip label {
 // Time CSS
 
 //.time{color:whitesmoke;}
+
+
+// Calendar CSS
+.cal {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 0.0628rem solid whitesmoke;
+  border-radius: 0.314rem;
+  padding: 1.5px;
+  color: whitesmoke;
+}
+
+.cal button {
+  color: #cba6f7;
+  border: none;
+  background: none;
+  padding: 1px 1px;
+}
+
+.cal button:hover {
+  color: whitesmoke;
+}
