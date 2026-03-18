@@ -33,3 +33,9 @@ end, { desc = "Save and Run file" })
 -- Autocomplete navigation
 map("i", "<C-Up>", "<C-p>", { desc = "Prev completion item" })
 map("i", "<C-Down>", "<C-n>", { desc = "Next completion item" })
+
+-- Arduino
+local arduino = require "configs.arduino"
+map("n", "<leader>ab", arduino.select_board, { desc = "Arduino select board" })
+map("n", "<leader>ap", arduino.select_port,  { desc = "Arduino select port"  })
+map("n", "<leader>au", arduino.upload,        { desc = "Arduino compile & upload" })

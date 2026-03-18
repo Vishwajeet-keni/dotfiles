@@ -23,11 +23,16 @@ return {
         "vim", "lua", "vimdoc",
         "html", "css", "scss",
         "python", "cpp", "java",
-        "javascript"
+        "javascript", "c"
       },
       highlight = {
         enable = true,
       },
     },
+  },
+
+  {
+  "stevearc/overseer.nvim",
+  opts = {},
   },
 }

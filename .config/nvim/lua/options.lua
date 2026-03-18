@@ -5,8 +5,13 @@ require "nvchad.options"
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
 
+vim.opt.swapfile = false
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 vim.filetype.add({
   extension = {
-    yuck = "lisp"
+    ino = "cpp",
+    yuck = "lisp",
   }
 })
