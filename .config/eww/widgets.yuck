@@ -99,7 +99,7 @@
 
     (box :class "updates-container"
          :orientation "h"
-         :spacing 1
+         :spacing 8
       (label :text icon-updates)
       (label :text "${update_data.count}")
     )
