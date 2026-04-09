@@ -69,14 +69,28 @@ tooltip label {
 
 
 // System Stats CSS
-//.cpu-label { color: #61afef; }
-//.mem-label { color: #98c379; }
 
+// CPU - Blue spectrum
+.cpu-idle     { color: #74c7ec; }
+.cpu-low      { color: #89b4fa; }
+.cpu-moderate { color: #89dceb; }
+.cpu-high     { color: #74c7ec; }
+.cpu-critical { color: #f38ba8; }
+
+// Memory - Purple spectrum
+.mem-normal   { color: #cba6f7; }
+.mem-moderate { color: #b4befe; }
+.mem-high     { color: #cba6f7; }
+.mem-critical { color: #f5c2e7; }
+
+// Temperature - Orange/Red spectrum
 .temp-cool   { color: #89dceb; }
 .temp-normal { color: #a6e3a1; }
 .temp-warm   { color: #f9e2af; }
 .temp-hot    { color: #fab387; }
 .temp-crit   { color: #f38ba8; }
+
+
 
 // Battery CSS
 

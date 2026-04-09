@@ -22,9 +22,9 @@ return {
     opts = {
       ensure_installed = {
         "vim", "lua", "vimdoc",
-        "html", "css", "scss",
-        "python", "cpp", "java",
-        "javascript", "c"
+        "html", "css", "scss", "qss",
+        "python", "c", "cpp",
+        "java", "javascript"
       },
       highlight = {
         enable = true,

@@ -2,12 +2,13 @@
 (defvar arch_logo "")
 
 (defwidget Arch_logo []
-  (box  :orientation "h"
-        :spacing 0
+  (box  :orientation  "h"
+        :spacing       0
 
       (label  :text arch_logo :class "arch_linux_logo")
   )
 )
+
 
 
 ;=====Workspace==================================
@@ -24,9 +25,9 @@
 )
 
 (defwidget workspace []
-  (box :class "workspace-container"
+  (box :class       "workspace-container"
        :orientation "h"
-       :spacing 2
+       :spacing      2
 
       (for ws in {workspace_data.workspaces}
         (ws-btn :id "${ws}")
@@ -36,49 +37,50 @@
 
 
 
-
-
-
 ;=====System_Stats===============================
 ;cpu_usage ,mem_usage ,temp
 
-(defvar icon-cpu "")
-(defvar icon-mem "")
-
 (defpoll System_data :interval "2s" "~/.config/eww/scripts/system_stats.sh")
 
-(defwidget system_stats []
-  (box  :class "system-stats-container"
-        :orientation "h"
+;Resuable function
+(defwidget status_item [class_name spacing x_icon x_name x_state] 
+  (box  :class        class_name
+        :orientation  "h"
         :space-evenly false
-        :spacing 8
+        :spacing      spacing
 
-      (box  :class "cpu-container" 
-            :orientation "h" 
-            :space-evenly false
-            :spacing 8
+      (label  :text "${x_icon}" :class "${x_state}")
+      (label  :text "${x_name}" :class "${x_state}")
+  ) 
+)
 
-          (label  :text icon-cpu              :class "cpu-icon")
-          (label  :text "${System_data.cpu}%" :class "cpu-label")
+(defwidget system_stats [] 
+
+  (box  :class        "system-stats-container"
+        :orientation  "h"
+        :space-evenly false
+        :spacing       8
+
+      (status_item  :class_name "cpu-container"
+                    :spacing     8  
+                    :x_icon     "${System_data.cpu_icon}"
+                    :x_name     "${System_data.cpu_usage}"
+                    :x_state    "${System_data.cpu_state}"
       )
 
-      (box  :class "memory-container" 
-            :orientation "h" 
-            :space-evenly false
-            :spacing 8
-
-          (label  :text icon-mem                  :class "mem-icon")
-          (label  :text "${System_data.memory}%"  :class "mem-label")
+      (status_item  :class_name "memory-container"
+                    :spacing     8  
+                    :x_icon     "${System_data.memory_icon}"
+                    :x_name     "${System_data.memory_usage}%"
+                    :x_state    "${System_data.memory_state}"
       )
 
-      (box  :class "memory-container" 
-            :orientation "h" 
-            :space-evenly false
-            :spacing 5
-
-          (label  :text "${System_data.temp_icon}"  :class "${System_data.temp_state}")
-          (label  :text "${System_data.temp_lvl}°C" :class "${System_data.temp_state}")
-      )
+      (status_item  :class_name "temp-container"
+                    :spacing     5  
+                    :x_icon     "${System_data.temp_icon}"
+                    :x_name     "${System_data.temp_lvl}°C"
+                    :x_state    "${System_data.temp_state}" 
+      ) 
   )
 )
 
@@ -105,6 +107,7 @@
     )
   )
 )
+
 
 
 ;=====Wifi=======================================
