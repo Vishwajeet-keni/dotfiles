@@ -27,7 +27,7 @@
 (defwidget workspace []
   (box :class       "workspace-container"
        :orientation "h"
-       :spacing      2
+       :spacing      1
 
       (for ws in {workspace_data.workspaces}
         (ws-btn :id "${ws}")
@@ -115,6 +115,7 @@
 
 (defwidget wifi []
   (button 
+    :class "wifi_but"
     :onclick "~/.config/eww/scripts/wifi.sh toggle"
     :tooltip "${wifi-data.ssid}"
     "${wifi-data.icon}"
