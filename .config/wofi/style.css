@@ -1,0 +1,37 @@
+* {
+    font-family: "Fira Code", monospace;
+}
+
+window {
+    margin: 0px;
+    border: 1px solid #bd93f9;
+    background-color: rgba(26, 26, 26, 0.95);
+    border-radius: 12px;
+}
+
+#input {
+    margin: 15px;
+    border: none;
+    color: #f8f8f2;
+    background-color: #44475a;
+    border-radius: 8px;
+}
+
+#outer-box {
+    margin: 5px;
+}
+
+#scroll {
+    margin: 5px;
+}
+
+#entry {
+    padding: 8px;
+    color: #f8f8f2;
+}
+
+#entry:selected {
+    background-color: #bd93f9;
+    border-radius: 8px;
+    color: #1e1e2e;
+}
