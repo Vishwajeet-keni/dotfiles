@@ -15,7 +15,7 @@
 (defvar ws-dot "")
 
 (defpoll workspace_data :interval "0.5s"
-  :initial `{"current": 1, "workspaces": [1]}` `~/.config/eww/scripts/workspaces.sh`)
+  :initial `{"current": 1, "workspaces": [1]}` `~/.config/eww/hypr_bar/scripts/workspaces.sh`)
 
 (defwidget ws-btn [id]
   (button :class {"${workspace_data.current}" == "${id}" ? "ws-active" : "ws-inactive"}
@@ -40,7 +40,7 @@
 ;=====System_Stats===============================
 ;cpu_usage ,mem_usage ,temp
 
-(defpoll System_data :interval "2s" "~/.config/eww/scripts/system_stats.sh")
+(defpoll System_data :interval "2s" "~/.config/eww/hypr_bar/scripts/system_stats.sh")
 
 ;Resuable function
 (defwidget status_item [class_name spacing x_icon x_name x_state] 
@@ -89,7 +89,7 @@
 ;=====PKG_Updates_Avalable=======================
 (defvar icon-updates "")
 
-(defpoll update_data :interval "3600s" "~/.config/eww/scripts/updates.sh")
+(defpoll update_data :interval "3600s" "~/.config/eww/hypr_bar/scripts/updates.sh")
 
 (defwidget updates []
   (tooltip
@@ -111,7 +111,7 @@
 
 
 ;=====Wifi=======================================
-(defpoll wifi-data :interval "1s" "~/.config/eww/scripts/wifi.sh")
+(defpoll wifi-data :interval "1s" "~/.config/eww/hypr_bar/scripts/wifi.sh")
 
 (defwidget wifi []
   (button 
@@ -125,7 +125,7 @@
 
 
 ;=====Battery====================================
-(defpoll battery-data :interval "5s" "~/.config/eww/scripts/battery.sh")  
+(defpoll battery-data :interval "5s" "~/.config/eww/hypr_bar/scripts/battery.sh")  
 
 (defwidget battery []
   (box  :class "battery_container" 

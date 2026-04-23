@@ -39,7 +39,6 @@ memory_state=$(echo "$memory_usage" | awk '{
 
 # Gets cpu temp
 temp_lvl=$(sensors coretemp-isa-0000 | grep "Package id 0" | awk '{print $4}' | tr -d '+°C')
-``
 temp_icon=$(echo "$temp_lvl" | awk '{
   t = $1 + 0
   if (t < 40)      print ""

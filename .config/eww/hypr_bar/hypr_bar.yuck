@@ -71,6 +71,8 @@
 (defwindow cal_popup
   :monitor 0
   :windowtype "normal"
+;  :windowtype "popup"    ; was "normal"
+;  :focusable  "false"
   :geometry (geometry
     :anchor "top right"
     :x "8px"
