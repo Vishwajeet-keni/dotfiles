@@ -6,4 +6,4 @@
 
 #eww Bar
 eww kill 
-eww open bar
+eww open hypr_bar
