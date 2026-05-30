@@ -1,5 +1,6 @@
 #!/bin/bash
 
+hyprctl reload
 # Waybar
 #killall -9 waybar
 #waybar & 
