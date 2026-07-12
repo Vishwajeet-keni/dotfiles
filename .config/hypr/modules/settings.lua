@@ -68,6 +68,8 @@ hl.config({
     },
 })
 
+hl.layer_rule({ match = { namespace = "eww-control_panel" }, blur = true, ignore_alpha = 0.1 })
+
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only" — uncomment all if you wish to use that.
 -- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
@@ -84,3 +86,4 @@ hl.config({
 --     border_size = 0,
 --     rounding = 0,
 -- })
+
