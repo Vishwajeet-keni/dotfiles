@@ -43,6 +43,10 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
     hl.exec_cmd("swww-daemon")
 
+    -- Reload hyprpm plugins on start so dynamic-cursors (and any future plugins) load
+    -- automatically each session — add -n if you want a notification confirming load
+    hl.exec_cmd("hyprpm reload")
+
     -- eDP-1
     hl.exec_cmd("sleep 1 && swww img ~/wallpapers/static/w1.jpg --output eDP-1")
 
@@ -56,8 +60,10 @@ end)
 -- (If you use uwsm, Arch's wiki now recommends putting these in ~/.config/uwsm/env-hyprland
 -- instead of here — totally optional, your old setup didn't use uwsm so this is fine as-is.)
 -- ----------------------------------------------------------------------------------------------
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_SIZE", "24")              -- how big
+hl.env("HYPRCURSOR_SIZE", "24")           -- how big (hyprcursor-aware apps)
+hl.env("XCURSOR_THEME", "Bibata-Modern-Ice")     -- what it looks like
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Ice")  -- what it looks like (hyprcursor-aware apps)
 
 -- ----------------------------------------------------------------------------------------------
 -- Permissions
@@ -77,3 +83,4 @@ require("modules/settings")
 require("modules/animations")
 require("modules/input")
 require("modules/binds")
+require("modules/plugins")
