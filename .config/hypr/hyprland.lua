@@ -60,11 +60,13 @@ end)
 -- (If you use uwsm, Arch's wiki now recommends putting these in ~/.config/uwsm/env-hyprland
 -- instead of here — totally optional, your old setup didn't use uwsm so this is fine as-is.)
 -- ----------------------------------------------------------------------------------------------
-hl.env("XCURSOR_SIZE", "24")              -- how big
-hl.env("HYPRCURSOR_SIZE", "24")           -- how big (hyprcursor-aware apps)
-hl.env("XCURSOR_THEME", "Bibata-Modern-Ice")     -- what it looks like
-hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Ice")  -- what it looks like (hyprcursor-aware apps)
-
+hl.env("XCURSOR_SIZE", "24")           
+hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "Bibata-Modern-Ice")  
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Ice")
+hl.env("GTK_THEME", "catppuccin-mocha-blue-standard+default")
+hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
+hl.env("QT_STYLE_OVERRIDE", "kvantum")
 -- ----------------------------------------------------------------------------------------------
 -- Permissions
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
