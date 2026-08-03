@@ -70,6 +70,15 @@ hl.config({
 
 hl.layer_rule({ match = { namespace = "eww-control-panel" }, blur = true, ignore_alpha = 0.5 })
 
+
+hl.window_rule({
+    name  = "conky-clock-float",
+    match = { class = "conky-clock" },
+    float    = true,
+    no_focus = true,
+    pin      = true,
+    no_anim  = true,
+})
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only" — uncomment all if you wish to use that.
 -- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
