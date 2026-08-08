@@ -1,0 +1,50 @@
+# ===== Shell history & secrets =====
+.bash_history
+.config/fish/fish_history
+.config/fish/fish_variables
+.zsh_history
+.python_history
+.lesshst
+
+# ===== Generic secret patterns (belt & suspenders) =====
+*.env
+.env*
+*secret*
+*_token
+*.key
+*.pem
+id_rsa
+id_ed25519
+
+# ===== Neovim runtime/cache junk (not config) =====
+.config/nvim/.netrwhist
+.config/nvim/swap/
+.config/nvim/undo/
+.config/nvim/spell/
+*.swp
+*.swo
+*~
+
+# ===== EWW / hypr_bar build & runtime artifacts =====
+.config/eww/**/target/
+.config/eww/**/*.log
+.config/hypr/hyprlock_cache/
+
+# ===== GTK/Qt cache (regenerated, not real config) =====
+.config/gtk-3.0/bookmarks
+.config/gtk-4.0/bookmarks
+
+# ===== Rofi/Wofi cache =====
+.cache/rofi*
+.config/rofi/*.cache
+
+# ===== OS / editor junk =====
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+
+# ===== Local-only overrides (machine-specific, not for HyperNova <-> Fedora sync) =====
+*.local
+.config/**/local.conf
+.config/**/*.local.lua
