@@ -41,17 +41,19 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("udiskie &")
     hl.exec_cmd("eww daemon; eww open hypr_bar")
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-    hl.exec_cmd("swww-daemon")
+    -- hl.exec_cmd("swww-daemon")
+    hl.exec_cmd("awww-daemon")
+
 
     -- Reload hyprpm plugins on start so dynamic-cursors (and any future plugins) load
     -- automatically each session — add -n if you want a notification confirming load
     hl.exec_cmd("hyprpm reload")
 
     -- eDP-1
-    hl.exec_cmd("sleep 1 && swww img ~/wallpapers/static/w1.jpg --output eDP-1")
+    hl.exec_cmd("sleep 1 && awww img ~/wallpapers/static/w1.jpg --output eDP-1")
 
     -- HDMI-A-1
-    hl.exec_cmd("sleep 1 && swww img ~/wallpapers/static/w1.jpg --output HDMI-A-1")
+    hl.exec_cmd("sleep 1 && awww img ~/wallpapers/static/w1.jpg --output HDMI-A-1")
 end)
 
 -- ----------------------------------------------------------------------------------------------
