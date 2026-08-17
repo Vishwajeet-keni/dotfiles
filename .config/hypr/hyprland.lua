@@ -40,8 +40,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("hypridle")
     hl.exec_cmd("udiskie &")
     hl.exec_cmd("eww daemon; eww open hypr_bar")
-    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-    -- hl.exec_cmd("swww-daemon")
+    hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
     hl.exec_cmd("awww-daemon")
 
 
