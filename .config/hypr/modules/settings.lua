@@ -6,7 +6,7 @@ hl.config({
     general = {
         gaps_in = 5,
         gaps_out = 10,
-        border_size = 2,
+        border_size = 1,
         col = {
             active_border  = { colors = { theme.border1, theme.border2 }, angle = 45 },
             inactive_border = theme.inactive,
