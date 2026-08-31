@@ -28,6 +28,3 @@ wal -i "$WALLPAPER" -q
 
 # 4. Update Kitty Terminal globally across all open terminals
 kitty @ set-colors -a -c ~/.cache/wal/colors-kitty.conf 2>/dev/null || true
-
-# 5. Reload Hyprland to update borders from hyprland.lua
-hyprctl reload

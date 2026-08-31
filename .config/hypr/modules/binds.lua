@@ -7,6 +7,7 @@
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q",      hl.dsp.window.close())
 hl.bind(mainMod .. " + R",      hl.dsp.exec_cmd("~/.config/scripts/reload.sh"))
+hl.bind(mainMod .. " + B",      hl.dsp.exec_cmd("~/.config/scripts/change_wp_theme.sh ;hyprctl reload"))
 hl.bind(mainMod .. " + L",      hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + M",      hl.dsp.exec_cmd("wlogout"))
 hl.bind(mainMod .. " + V",      hl.dsp.window.float({ action = "toggle" }))
