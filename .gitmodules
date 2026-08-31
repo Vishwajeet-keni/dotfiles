@@ -1,3 +1,6 @@
 [submodule ".config/eww/hypr_bar"]
 	path = .config/eww/hypr_bar
 	url = git@github.com:Vishwajeet-keni/hypr_bar.git
+[submodule ".config/quickshell/hypr_bar_qml"]
+	path = .config/quickshell/hypr_bar_qml
+	url = git@github.com:Vishwajeet-keni/hypr_bar_qml.git
