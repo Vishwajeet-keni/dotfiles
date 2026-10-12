@@ -7,11 +7,14 @@ local M = {}
 
 M.base46 = {
 	theme = "tokyodark",
-
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+	transparency = true,
+	hl_override = {
+		Normal = { bg = "NONE" },
+		NormalNC = { bg = "NONE" },
+		NormalFloat = { bg = "NONE" },
+		SignColumn = { bg = "NONE" },
+		EndOfBuffer = { bg = "NONE" },
+	},
 }
 
 -- M.nvdash = { load_on_startup = true }

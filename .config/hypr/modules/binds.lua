@@ -12,8 +12,9 @@ hl.bind(mainMod .. " + L",      hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + M",      hl.dsp.exec_cmd("wlogout"))
 hl.bind(mainMod .. " + V",      hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D",      hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + F",      hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 hl.bind(mainMod .. " + P",      hl.dsp.window.pseudo()) -- dwindle
--- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only; was commented out in your old config too
+hl.bind(mainMod .. " + J",      hl.dsp.layout("togglesplit")) -- dwindle only; was commented out in your old config too
 
 hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("hyprlock & systemctl suspend"), { locked = true })
 
