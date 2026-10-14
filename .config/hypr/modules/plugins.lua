@@ -29,3 +29,14 @@ if hl.plugin.dynamic_cursors then
 end
 
 hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+
+local vsCodeGlass = hl.window_rule({
+  name    = "vscode-glass",
+  match   = { class = "^(code|Code)$" },
+  opacity = "0.9 0.8",
+})
+
+-- Toggle with a keybind
+hl.bind("SUPER + G", function()
+  vsCodeGlass:set_enabled(not vsCodeGlass:is_enabled())
+end)   
