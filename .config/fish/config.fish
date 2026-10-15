@@ -2,5 +2,6 @@ if status is-interactive
 # Commands to run in interactive sessions can go here
 end
 
-
-export LIBVIRT_DEFAULT_URI="qemu:///system"
+# Starship
+set -gx STARSHIP_CONFIG "$HOME/.config/starship/starship.toml"
+starship init fish | source
