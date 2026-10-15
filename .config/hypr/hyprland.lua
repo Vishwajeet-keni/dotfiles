@@ -23,6 +23,7 @@ hl.monitor({ output = "HDMI-A-1", mode = "3840x2160@70", position = "0x0", scale
 -- require()'d scope — can still see terminal / fileManager / menu / mainMod.
 -- ----------------------------------------------------------------------------------------------
 terminal    = "kitty"
+yazi_fileManager = "kitty -e yazi"
 fileManager = "dolphin"
 menu        = "~/.config/rofi/launchers/type-6/launcher.sh" -- wofi --show drun
 mainMod     = "SUPER" -- Sets "Windows" key as main modifier

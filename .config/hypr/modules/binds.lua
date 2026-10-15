@@ -5,6 +5,7 @@
 -- ----------------------------------------------------------------------------------------------
 
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd(yazi_fileManager))
 hl.bind(mainMod .. " + Q",      hl.dsp.window.close())
 hl.bind(mainMod .. " + R",      hl.dsp.exec_cmd("~/.config/scripts/reload.sh"))
 hl.bind(mainMod .. " + B",      hl.dsp.exec_cmd("~/.config/scripts/change_wp_theme.sh ;hyprctl reload"))
