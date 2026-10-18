@@ -53,8 +53,9 @@ local antigravityGlass = hl.window_rule({
 
 
 
+
 -- Toggle with a keybind
-hl.bind("SUPER + G", function()
+hl.bind("SUPER + T", function()
   vsCodeGlass:set_enabled(not vsCodeGlass:is_enabled())
   antigravityGlass:set_enabled(not antigravityGlass:is_enabled())
   antigravityIdeGlass:set_enabled(not antigravityIdeGlass:is_enabled())
