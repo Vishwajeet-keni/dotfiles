@@ -30,13 +30,32 @@ end
 
 hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
+
+
+
 local vsCodeGlass = hl.window_rule({
   name    = "vscode-glass",
   match   = { class = "com.microsoft.VSCode" },
   opacity = "0.9 0.8",
 })
 
+local antigravityIdeGlass = hl.window_rule({
+  name    = "antigravity-ide-glass",
+  match   = { class = "antigravity-ide" },
+  opacity = "0.9 0.8",
+})
+
+local antigravityGlass = hl.window_rule({
+  name    = "antigravity-ide-glass",
+  match   = { class = "antigravity" },
+  opacity = "0.9 0.8",
+})
+
+
+
 -- Toggle with a keybind
 hl.bind("SUPER + G", function()
   vsCodeGlass:set_enabled(not vsCodeGlass:is_enabled())
+  antigravityGlass:set_enabled(not antigravityGlass:is_enabled())
+  antigravityIdeGlass:set_enabled(not antigravityIdeGlass:is_enabled())
 end)
