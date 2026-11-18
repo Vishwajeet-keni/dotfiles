@@ -23,8 +23,9 @@ ln -sf "$WALLPAPER" ~/.cache/current_wallpaper
 # 2. Update Desktop Wallpaper via awww
 awww img "$WALLPAPER" --transition-type wipe --transition-fps 60
 
-# 3. Generate Colors with Pywal (export everywhere, omit terminal sequences with -n)
+# 3. Generate Colors with Pywal and Matugen
+matugen image -m smart "$WALLPAPER"
 wal -i "$WALLPAPER" -q
 
 # 4. Update Kitty Terminal globally across all open terminals
-kitty @ set-colors -a -c ~/.cache/wal/colors-kitty.conf 2>/dev/null || true
+kitty @ set-colors -a -c ~/.config/kitty/matugen-colors.conf 2>/dev/null || true

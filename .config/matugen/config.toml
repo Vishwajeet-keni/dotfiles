@@ -1,0 +1,6 @@
+[config]
+default_mode = "smart"
+
+[templates.kitty]
+input_path = "~/.config/matugen/templates/kitty-colors.conf"
+output_path = "~/.config/kitty/matugen-colors.conf"

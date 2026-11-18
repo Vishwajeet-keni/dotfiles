@@ -51,12 +51,17 @@ local antigravityGlass = hl.window_rule({
   opacity = "0.9 0.8",
 })
 
-
+-- local bravebrowserGlass = hl.window_rule({
+--   name    = "brave-browser-glass",
+--   match   = { class = "brave-browser" },
+--   opacity = "0.9 0.8",
+-- })
 
 
 -- Toggle with a keybind
-hl.bind("SUPER + T", function()
+hl.bind("SUPER + G", function()
   vsCodeGlass:set_enabled(not vsCodeGlass:is_enabled())
   antigravityGlass:set_enabled(not antigravityGlass:is_enabled())
   antigravityIdeGlass:set_enabled(not antigravityIdeGlass:is_enabled())
+  -- bravebrowserGlass:set_enabled(not bravebrowserGlass:is_enabled())
 end)

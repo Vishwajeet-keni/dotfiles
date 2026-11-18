@@ -52,3 +52,9 @@ Thumbs.db
 
 
 .qmlls.ini
+
+# ===== Auto-generated display and workspace state =====
+.config/hypr/monitors.conf
+.config/hypr/monitors.lua
+.config/hypr/workspaces.conf
+.config/hypr/workspaces.lua
